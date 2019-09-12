@@ -1,26 +1,105 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component}from 'react';
 import './App.css';
+import Numbers from './numbers.js';
 
-function App() {
+class App extends Component{
+
+  state={
+    number:null,
+    symbol:null,
+    newNumber:null,
+    numberFilled:false
+    
+  }
+  calculate(num){
+    if(!this.state.numberFilled){
+      this.setState({
+        number:num,
+        numberFilled:true
+          })
+        
+    }
+    else{
+      this.setState({
+        newNumber:num
+          })
+    }
+  }
+   
+render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {this.state.number} &nbsp; {this.state.symbol} &nbsp; {this.state.newNumber} &nbsp;=&nbsp; {this.state.symbol == '+' &&(
+        this.state.number + this.state.newNumber
+  )} &nbsp; {this.state.symbol == '-' &&(
+    this.state.number - this.state.newNumber
+)} &nbsp; {this.state.symbol == '*' &&(
+  this.state.number * this.state.newNumber
+)}
+{this.state.symbol == '/' &&(
+  this.state.number / this.state.newNumber
+)}
+      <Numbers number={1} collectNumber={(number)=>{
+        this.calculate(number)
+      }}/>
+      <Numbers number={2} collectNumber={(number)=>{
+        this.calculate(number)
+      }}/>
+      <Numbers number={3} collectNumber={(number)=>{
+        this.calculate(number)
+      }}/>
+      <Numbers number={4} collectNumber={(number)=>{
+        this.calculate(number)
+      }}/>
+      <Numbers number={5} collectNumber={(number)=>{
+        this.calculate(number)
+      }}/>
+      <Numbers number={6} collectNumber={(number)=>{
+        this.calculate(number)
+      }}/>
+      <Numbers number={7} collectNumber={(number)=>{
+        this.calculate(number)
+      }}/>
+      <Numbers number={8} collectNumber={(number)=>{
+        this.calculate(number)
+      }}/>
+      <Numbers number={9} collectNumber={(number)=>{
+        this.calculate(number)
+      }}/>
+      <Numbers number={0} collectNumber={(number)=>{
+        this.calculate(number)
+      }}/>
+      <div className='number-box' onClick={()=>{
+        this.setState({
+          symbol:'+'
+        })
+      }}>
+        +
+      </div>
+      <div className='number-box' onClick={()=>{
+        this.setState({
+          symbol:'-'
+        })
+      }}>
+        -
+      </div>
+      <div className='number-box' onClick={()=>{
+        this.setState({
+          symbol:'*'
+        })
+      }}>
+        x
+      </div>
+      <div className='number-box' onClick={()=>{
+        this.setState({
+          symbol:'/'
+        })
+      }}>
+        /
+      </div>
     </div>
-  );
+  )
+}
 }
 
 export default App;

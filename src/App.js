@@ -1,105 +1,41 @@
-import React, {Component}from 'react';
+import React, {useState}from 'react';
 import './App.css';
-import Numbers from './numbers.js';
+import Numbers from './numbers';
+import DisplayBox from './DisplayBox';
+import Symbols from './symbols';
+import Equals from './equals';
+import ClearAll from './clearAll';
+import Clear from './clear';
+function App(){
+const [display,setDisplay]=useState(null);
 
-class App extends Component{
-
-  state={
-    number:null,
-    symbol:null,
-    newNumber:null,
-    numberFilled:false
-    
-  }
-  calculate(num){
-    if(!this.state.numberFilled){
-      this.setState({
-        number:num,
-        numberFilled:true
-          })
-        
-    }
-    else{
-      this.setState({
-        newNumber:num
-          })
-    }
-  }
-   
-render(){
-  return (
-    <div className="App">
-      {this.state.number} &nbsp; {this.state.symbol} &nbsp; {this.state.newNumber} &nbsp;=&nbsp; {this.state.symbol == '+' &&(
-        this.state.number + this.state.newNumber
-  )} &nbsp; {this.state.symbol == '-' &&(
-    this.state.number - this.state.newNumber
-)} &nbsp; {this.state.symbol == '*' &&(
-  this.state.number * this.state.newNumber
-)}
-{this.state.symbol == '/' &&(
-  this.state.number / this.state.newNumber
-)}
-      <Numbers number={1} collectNumber={(number)=>{
-        this.calculate(number)
-      }}/>
-      <Numbers number={2} collectNumber={(number)=>{
-        this.calculate(number)
-      }}/>
-      <Numbers number={3} collectNumber={(number)=>{
-        this.calculate(number)
-      }}/>
-      <Numbers number={4} collectNumber={(number)=>{
-        this.calculate(number)
-      }}/>
-      <Numbers number={5} collectNumber={(number)=>{
-        this.calculate(number)
-      }}/>
-      <Numbers number={6} collectNumber={(number)=>{
-        this.calculate(number)
-      }}/>
-      <Numbers number={7} collectNumber={(number)=>{
-        this.calculate(number)
-      }}/>
-      <Numbers number={8} collectNumber={(number)=>{
-        this.calculate(number)
-      }}/>
-      <Numbers number={9} collectNumber={(number)=>{
-        this.calculate(number)
-      }}/>
-      <Numbers number={0} collectNumber={(number)=>{
-        this.calculate(number)
-      }}/>
-      <div className='number-box' onClick={()=>{
-        this.setState({
-          symbol:'+'
-        })
-      }}>
-        +
-      </div>
-      <div className='number-box' onClick={()=>{
-        this.setState({
-          symbol:'-'
-        })
-      }}>
-        -
-      </div>
-      <div className='number-box' onClick={()=>{
-        this.setState({
-          symbol:'*'
-        })
-      }}>
-        x
-      </div>
-      <div className='number-box' onClick={()=>{
-        this.setState({
-          symbol:'/'
-        })
-      }}>
-        /
-      </div>
-    </div>
-  )
-}
+return(
+  
+  <div className="calculator-box">
+    <h2>Simple Calculator</h2>
+  
+  <DisplayBox value={display} />
+  <Clear value={display} changeDisplay={setDisplay}/><ClearAll changeDisplay={setDisplay}/>
+ 
+  <Symbols symbol="*" collectSymbol={setDisplay}/>
+  <Symbols symbol="*" collectSymbol={setDisplay}/>
+  <Symbols symbol="+" collectSymbol={setDisplay}/>
+  <Symbols symbol="-" collectSymbol={setDisplay}/>
+  <Symbols symbol="/" collectSymbol={setDisplay}/>
+  <Equals value={display} symbol="=" changeDisplay={setDisplay}/>
+  <Numbers number={1} collectNumber={setDisplay}/>
+  <Numbers number={2} collectNumber={setDisplay}/>
+  <Numbers number={3} collectNumber={setDisplay}/>
+  <Numbers number={4} collectNumber={setDisplay}/>
+  <Numbers number={5} collectNumber={setDisplay}/>
+  <Numbers number={6} collectNumber={setDisplay}/>
+  <Numbers number={7} collectNumber={setDisplay}/>
+  <Numbers number={8} collectNumber={setDisplay}/>
+  <Numbers number={9} collectNumber={setDisplay}/>
+  <Numbers number={0} collectNumber={setDisplay}/>
+  </div>
+  
+)
 }
 
 export default App;

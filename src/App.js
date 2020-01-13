@@ -18,7 +18,6 @@ return(
   <Clear value={display} changeDisplay={setDisplay}/><ClearAll changeDisplay={setDisplay}/>
  
   <Symbols symbol="*" collectSymbol={setDisplay}/>
-  <Symbols symbol="*" collectSymbol={setDisplay}/>
   <Symbols symbol="+" collectSymbol={setDisplay}/>
   <Symbols symbol="-" collectSymbol={setDisplay}/>
   <Symbols symbol="/" collectSymbol={setDisplay}/>

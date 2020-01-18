@@ -2,7 +2,7 @@ import React from 'react';
 
 function ClearAll(props){
     return (
-        <div className="clear-button" onClick={()=>{
+        <div className="clear-button clearAll" onClick={()=>{
             props.changeDisplay(null)
         }}>
            ClearAll

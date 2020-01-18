@@ -4,7 +4,7 @@ function Equals(props){
     <div className="symbols equals" onClick={()=>{
         const calculatedValue=eval(props.value);
         props.changeDisplay((prev)=>{
-           if(prev != null ){
+           if(prev != null){
             return `${calculatedValue}`
            }
               

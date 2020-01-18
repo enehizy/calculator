@@ -15,7 +15,7 @@ return(
     <h2>Simple Calculator</h2>
   
   <DisplayBox value={display} />
-  <Clear value={display} changeDisplay={setDisplay}/><ClearAll changeDisplay={setDisplay}/>
+  <Clear changeDisplay={setDisplay}/><ClearAll changeDisplay={setDisplay}/>
  
   <Symbols symbol="*" collectSymbol={setDisplay}/>
   <Symbols symbol="+" collectSymbol={setDisplay}/>

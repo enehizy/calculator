@@ -22,11 +22,13 @@ h2{
 }
 .display-box{
   border:3px solid #444;
-  padding:20px;
+  padding:15px;
   flex-basis:100%;
   margin:0 12px;
   background:#6e787e;
   
+  color:#FFBB04;
+  font-size:20px;
 }.clear-button{
  
   opacity:0.6;
@@ -37,9 +39,11 @@ h2{
 }
 .clear{
   background:#a0a1a3;
+  cursor:pointer;
 }
 .clearAll{
   background:#a6687f;
+  cursor:pointer;
 }
 
 .number,.symbols{
@@ -48,6 +52,7 @@ h2{
   padding:17px;
   flex-basis:30%;
   margin-top:10px;
+  cursor:pointer;
 }
 .symbols{
   font-size:30px;
@@ -56,4 +61,5 @@ h2{
 }
 .equals{
   background:#65678c;
+  cursor:pointer;
 }

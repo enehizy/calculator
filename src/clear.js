@@ -9,13 +9,13 @@ function Clear(props){
             
             props.changeDisplay((prev)=>{
                  if(prev != null && prev.lenght >= 2){
-              return  `${prev.slice(0,-1)}`
+                  return  `${prev.slice(0,-1)}`
                
             }
-            else{
-              return null
-               
+            else if(prev.length<2){
+              return  null
             }
+            
             })
            
             
